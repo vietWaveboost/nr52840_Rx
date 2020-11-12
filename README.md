@@ -20,11 +20,11 @@ WaveBoost Sensor Board is including :
   
   3 GPIO Connection: 
    - BME280 : 
-   SCLK <--> 31
+   SCLK <--> 13
    
    MOSI <--> 15  
    
-   MISO <--> 29
+   MISO <--> 17
    
    SS   <--> 2
               
