@@ -60,9 +60,9 @@
 #define RUUVI_BOARD_BUTTON_DEBOUNCE_PERIOD_MS 50
 
 // SPI definitions for RuuviTag B
-#define RUUVI_BOARD_SPI_SCLK_PIN              NRF_GPIO_PIN_MAP(0,31)//31//29 // SPI clock GPIO pin number.
+#define RUUVI_BOARD_SPI_SCLK_PIN              NRF_GPIO_PIN_MAP(0,13)//31//29 // SPI clock GPIO pin number.
 #define RUUVI_BOARD_SPI_MOSI_PIN              NRF_GPIO_PIN_MAP(1,15)//25 // SPI Master Out Slave In GPIO pin number.
-#define RUUVI_BOARD_SPI_MISO_PIN              NRF_GPIO_PIN_MAP(0,29)//28 // SPI Master In Slave Out GPIO pin number.
+#define RUUVI_BOARD_SPI_MISO_PIN              NRF_GPIO_PIN_MAP(0,17)//28 // SPI Master In Slave Out GPIO pin number.
 #define RUUVI_BOARD_SPI_SS_ACCELEROMETER_PIN  8  // SPI Slave Select (accelerometer)
 #define RUUVI_BOARD_SPI_SS_ENVIRONMENTAL_PIN  NRF_GPIO_PIN_MAP(0,2)//3  // SPI Slave Select (BME280)
 #define RUUVI_BOARD_SPI_SS_LIST               {RUUVI_BOARD_SPI_SS_ENVIRONMENTAL_PIN}
