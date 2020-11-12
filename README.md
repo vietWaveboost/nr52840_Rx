@@ -19,15 +19,16 @@ WaveBoost Sensor Board is including :
   - Step 4 : Open the project by double click on the file : nr52840_Rx/targets/ruuvitag_b/ses/ruuvi.firmware.c.emProject , then compile the project.
   
   3 GPIO Connection: 
-   - BME280 : SCLK <--> 31
-   
-              MOSI <--> 15
+   - BME280 : 
+   SCLK <--> 31
+   MOSI <--> 15  
+   MISO <--> 29
+   SS   <--> 2
               
-              MISO <--> 29
-              
-              SS   <--> 2
-              
-   - VEML6305 : SDL <--> 13
-   
-                SDA <--> 10
+   - VEML6305 : 
+   SDL <--> 13
+   SDA <--> 10
   
+  4 Change the interval advertising: 
+   - go to the file application_config.h, and search for the macro : APPLICATION_ADVERTISING_INTERVAL and change its value
+   (#define APPLICATION_ADVERTISING_INTERVAL              1010)
