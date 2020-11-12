@@ -21,12 +21,17 @@ WaveBoost Sensor Board is including :
   3 GPIO Connection: 
    - BME280 : 
    SCLK <--> 31
+   
    MOSI <--> 15  
+   
    MISO <--> 29
+   
    SS   <--> 2
               
    - VEML6305 : 
+   
    SDL <--> 13
+   
    SDA <--> 10
   
   4 Change the interval advertising: 
