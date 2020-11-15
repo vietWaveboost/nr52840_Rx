@@ -63,14 +63,22 @@ ruuvi_driver_status_t task_advertisement_send_3(void)
   ruuvi_interface_acceleration_data_t acclereration;
   ruuvi_interface_adc_data_t battery;
   ruuvi_interface_environmental_data_t environmental;
-
+  int light = 0;
   // Get data from sensors
   err_code |= task_acceleration_data_get(&acclereration);
+  #if(!ADVERTISE_WITH_DUMMY_DATA)
+  #if(ADVERTISE_WITH_BME280)
   err_code |= task_environmental_data_get(&environmental);
+  #endif
+  #endif
   err_code |= task_adc_battery_get(&battery);
   
-  int light = veml_read_luminosity(VEML7700_REG_ALS);
-  NRF_LOG_INFO("light = %d \r\n", light);
+  #if(!ADVERTISE_WITH_DUMMY_DATA)
+  #if(ADVERTISE_WITH_VEML6035)
+  light = veml_read_luminosity(VEML7700_REG_ALS);
+  //NRF_LOG_INFO("light = %d \r\n", light);
+  #endif
+  #endif
   // end 
   ruuvi_endpoint_3_data_t data;
   data.accelerationx_g = acclereration.x_g;

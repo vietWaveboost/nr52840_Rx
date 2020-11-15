@@ -79,7 +79,7 @@ uint16_t veml_read_luminosity(uint8_t reg)
     uint8_t reg_data = reg;
     uint8_t luminosity[2];
     uint16_t result = 0;
-    NRF_LOG_INFO("veml_read_luminosity start\r\n");
+    
     err_code = nrf_drv_twi_tx(&m_twi, VEML7700_ADDR, &reg_data, 1, true);
     APP_ERROR_CHECK(err_code);
     while (m_xfer_done == false);
@@ -94,6 +94,6 @@ uint16_t veml_read_luminosity(uint8_t reg)
     nrf_delay_ms(5); // don't know why need delay here to get correct value
     result = luminosity[1];
     result =  (result << 8) + luminosity[0];
-    NRF_LOG_INFO("veml_read_luminosity result %d \r\n", result);
+    //NRF_LOG_INFO("veml_read_luminosity result %d \r\n", result);
     return result;
 }

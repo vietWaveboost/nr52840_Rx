@@ -54,15 +54,18 @@ ruuvi_driver_status_t task_environmental_init(void)
   // Initialize timer for environmental task. Note: the timer is not started.
   err_code |= ruuvi_platform_timer_create(&environmental_timer, RUUVI_INTERFACE_TIMER_MODE_REPEATED, task_environmental_timer_cb);
  
+ #if(ADVERTISE_WITH_VEML6035)
   veml770_twi_init();
   veml_config(0, 0, 0);
   NRF_LOG_INFO("veml configured\r\n");
   int light = veml_read_luminosity(VEML7700_REG_ALS);
   NRF_LOG_INFO("light = %d \r\n", light);
+ #endif
   // End
   #if RUUVI_BOARD_ENVIRONMENTAL_BME280_PRESENT
     err_code = RUUVI_DRIVER_SUCCESS;
     // Only SPI supported for now
+    #if(ADVERTISE_WITH_BME280)
     bus = RUUVI_DRIVER_BUS_SPI;
     handle = RUUVI_BOARD_SPI_SS_ENVIRONMENTAL_PIN;
     err_code |= ruuvi_interface_bme280_init(&environmental_sensor, bus, handle);
@@ -73,6 +76,7 @@ ruuvi_driver_status_t task_environmental_init(void)
       err_code |= task_environmental_configure();
       return err_code;
     }
+    #endif
   #endif
 
   #if RUUVI_BOARD_ENVIRONMENTAL_MCU_PRESENT
@@ -86,7 +90,7 @@ ruuvi_driver_status_t task_environmental_init(void)
     }
   #endif
   // Return error if usable environmental sensor was not found.
-  return RUUVI_DRIVER_ERROR_NOT_FOUND;
+  return err_code;
 }
 
 ruuvi_driver_status_t task_environmental_sample(void)

@@ -96,8 +96,10 @@ int main(void)
 
   // Initialize environmental- nRF52 will return ERROR NOT SUPPORTED on RuuviTag basic
   // if DSP was configured, log warning
+#if(!ADVERTISE_WITH_DUMMY_DATA)
   status |= task_environmental_init();
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_ERROR_NOT_SUPPORTED);
+#endif
 //  char message[128] = {0};
 //  snprintf(message, sizeof(message), "APPLICATION_DATA_FORMAT: %x", APPLICATION_DATA_FORMAT);
 //  ruuvi_platform_log(RUUVI_INTERFACE_LOG_INFO, message);
