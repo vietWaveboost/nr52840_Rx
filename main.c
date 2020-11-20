@@ -50,10 +50,11 @@ int main(void)
    RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
 
   // Initialize LED gpio pins, turn RED led on.
+ /*
   status |= task_led_init();
   status |= task_led_write(RUUVI_BOARD_LED_RED, TASK_LED_ON);
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
-
+*/
   // Initialize SPI
   status |= task_spi_init();
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
@@ -113,7 +114,7 @@ int main(void)
   status |= task_advertisement_init();
 //  status |= task_gatt_init();
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
-
+/*
   // Turn RED led off. Turn GREEN LED on if no errors occured
   status |= task_led_write(RUUVI_BOARD_LED_RED, TASK_LED_OFF);
   if(RUUVI_DRIVER_SUCCESS == status)
@@ -123,15 +124,15 @@ int main(void)
   }
   // Reset any previous errors, turn LEDs off
   status = task_led_write(RUUVI_BOARD_LED_GREEN, TASK_LED_ON);
-
+*/
   while (1)
   {
     // Turn off activity led
-    status = task_led_write(RUUVI_BOARD_LED_RED, !RUUVI_BOARD_LEDS_ACTIVE_STATE);
+    //status = task_led_write(RUUVI_BOARD_LED_RED, !RUUVI_BOARD_LEDS_ACTIVE_STATE);
     // Sleep
     status |= ruuvi_platform_yield();
     // Turn on activity led
-    status |= task_led_write(RUUVI_BOARD_LED_RED, RUUVI_BOARD_LEDS_ACTIVE_STATE);
+    //status |= task_led_write(RUUVI_BOARD_LED_RED, RUUVI_BOARD_LEDS_ACTIVE_STATE);
     // Execute scheduled tasks
      status |= ruuvi_platform_scheduler_execute();
 
