@@ -17,8 +17,8 @@
 
 /* TWI instance ID. */
 #define TWI_INSTANCE_ID                 1
-#define VEML700_SDL			NRF_GPIO_PIN_MAP(1,13)
-#define VEML700_SDA			NRF_GPIO_PIN_MAP(1,10)
+#define VEML700_SDL			NRF_GPIO_PIN_MAP(0,7)//NRF_GPIO_PIN_MAP(1,13)
+#define VEML700_SDA			NRF_GPIO_PIN_MAP(0,8)//NRF_GPIO_PIN_MAP(1,10)
 #define VEML7700_ADDR                   0x29U
 
 

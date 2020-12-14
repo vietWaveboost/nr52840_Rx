@@ -2,7 +2,6 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
-  <BreakpointListItem trigger="" line="117" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/mdk/system_nrf52840.c" useHWbreakpoint="false"/>
   <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -26,10 +25,19 @@
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;Application"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;Application;Configuration"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;Application;tasks"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;nRF_Drivers"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;nRF_Log"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.boards.c"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;interfaces"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;interfaces;communication"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;interfaces;gpio"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;nrf5_sdk15_platform"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;nrf5_sdk15_platform;communication"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;nrf5_sdk15_platform;gpio"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;nrf5_sdk15_platform;spi"/>
+  <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;nrf5_sdk15_platform;timer"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;ruuvi.drivers.c;veml7700"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;Segger Startup Files"/>
   <ProjectSessionItem path="ruuvi.firmware.c;ruuvi.firmware.c;System"/>
@@ -65,32 +73,17 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="31" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" selected="0" top="120" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../tasks/task_led.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="46" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../tasks/task_spi.c" selected="0" top="28" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="65" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.boards.c/ruuvi_board_ruuvitag_b.h" selected="0" top="57" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="107" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../tasks/task_environmental.c" selected="0" top="102" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="125" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/BME280_driver/bme280_defs.h" selected="0" top="113" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="18" y="48" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/nrf5_sdk15_platform/spi/ruuvi_platform_spi.c" selected="0" top="36" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/README.md" selected="0" top="45" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="63" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/components/libraries/log/nrf_log_instance.h" selected="0" top="47" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="26" y="54" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/veml7700/veml7700.c" selected="0" top="39" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="488" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/integration/nrfx/legacy/nrf_drv_twi.h" selected="0" top="478" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="41" y="18" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/veml7700/veml7700.h" selected="0" top="15" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="3766" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/nrf5_sdk15_platform/sdk_config.h" selected="0" top="3815" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/src/nrfx_spi.c" selected="0" top="425" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="178" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/integration/nrfx/legacy/nrf_drv_twi.c" selected="1" top="166" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="6" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/nrf5_sdk15_platform/ruuvi_platform_external_includes.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="39" y="45" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../application_config/nrf5_sdk15_application_config.h" selected="0" top="48" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../application_config/ruuvi_platform_nrf5_sdk15_config.h" selected="0" top="30" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/ruuvi_driver_sensor.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/ruuvi_driver_sensor.c" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/ruuvi_driver_error.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="165" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/mdk/nrf52840_peripherals.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="71" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/nrfx_common.h" selected="0" top="54" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="98" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/include/nrfx_twi.h" selected="0" top="87" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="95" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/include/nrfx_twim.h" selected="0" top="93" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/nrf5_sdk15_platform/ruuvi_platform_error.c" selected="0" top="39" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="32" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="9" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="45" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../tasks/task_adc.c" selected="0" top="24" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="28" y="56" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/tasks/task_adc.c" useBinaryEdit="0" left="0" path="../../../ruuvi.boards.c/ruuvi_board_ruuvitag_b.h" selected="0" top="39" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="49" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/tasks/task_adc.c" useBinaryEdit="0" left="0" path="../../../tasks/task_advertisement.c" selected="0" top="22" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/main.c" useBinaryEdit="0" left="0" path="../../../tasks/task_led.c" selected="0" top="6" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="69" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/tasks/task_led.c" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/nrf5_sdk15_platform/gpio/ruuvi_platform_gpio.c" selected="0" top="58" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="27" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/ruuvi.drivers.c/nrf5_sdk15_platform/gpio/ruuvi_platform_gpio.c" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/interfaces/gpio/ruuvi_interface_gpio.h" selected="0" top="11" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/main.c" useBinaryEdit="0" left="0" path="../../../tasks/task_led.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../application_config/application_config.h" selected="0" top="156" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="69" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/tasks/task_advertisement.c" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/veml7700/veml7700.c" selected="0" top="51" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="42" y="19" useTextEdit="1" openedFrom="C:/Viet/workplace/release_fw/ruuvi.drivers.c/veml7700/veml7700.c" useBinaryEdit="0" left="0" path="../../../ruuvi.drivers.c/veml7700/veml7700.h" selected="0" top="0" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="ruuvi.firmware.c" fileDialogDefaultFilter="" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="C:/nfc_repo/nfc-library/private/nfc_t4t_lib/isodepmsg.c&#xa;&#xa;C:/nfc_repo/nfc-library/private/nfc_t4t_lib/nfc_t4t_lib.c&#xa;" fileDialogInitialDirectory="D:/00_Working/04_Support/00_source/new_ruuvi/nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="ruuvi.firmware.c" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="C:/nfc_repo/nfc-library/private/nfc_t4t_lib/isodepmsg.c&#xa;&#xa;C:/nfc_repo/nfc-library/private/nfc_t4t_lib/nfc_t4t_lib.c&#xa;" fileDialogInitialDirectory="D:/00_Working/04_Support/00_source/new_ruuvi/nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

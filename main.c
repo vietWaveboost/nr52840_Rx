@@ -25,7 +25,8 @@
 #include "task_spi.h"
 #include "task_timer.h"
 #include "test_sensor.h"
-
+#include "boards.h"
+#include "ruuvi_interface_gpio.h"
 #include <stdio.h>
 
 int main(void)
@@ -50,11 +51,11 @@ int main(void)
    RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
 
   // Initialize LED gpio pins, turn RED led on.
- /*
+ 
   status |= task_led_init();
-  status |= task_led_write(RUUVI_BOARD_LED_RED, TASK_LED_ON);
+  //status |= task_led_write(RUUVI_BOARD_LED_RED, TASK_LED_ON);
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
-*/
+
   // Initialize SPI
   status |= task_spi_init();
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
@@ -88,9 +89,13 @@ int main(void)
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
 
   // Initialize ADC
+  char message[128] = {0};
+  snprintf(message, sizeof(message), "APPLICATION_DATA_FORMAT");
+  ruuvi_platform_log(RUUVI_INTERFACE_LOG_INFO, message);
   status |= task_adc_init();
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
-
+  /*To increase GPIO voltage to 3.0V*/
+  bsp_board_init(BSP_INIT_LEDS);
   // Initialize button with on_button task
   status = task_button_init(RUUVI_INTERFACE_GPIO_SLOPE_HITOLO, task_button_on_press);
   RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_ERROR_NOT_FOUND | RUUVI_DRIVER_ERROR_NOT_SUPPORTED);
@@ -122,9 +127,11 @@ int main(void)
     status |= task_led_write(RUUVI_BOARD_LED_GREEN, TASK_LED_ON);
     ruuvi_platform_delay_ms(1000);
   }
-  // Reset any previous errors, turn LEDs off
-  status = task_led_write(RUUVI_BOARD_LED_GREEN, TASK_LED_ON);
 */
+  // Reset any previous errors, turn LEDs off
+  status = task_led_write(RUUVI_BOARD_PWR_SHARING, 0);
+  status = task_led_write(RUUVI_BOARD_DONE_SIG, 0);
+
   while (1)
   {
     // Turn off activity led

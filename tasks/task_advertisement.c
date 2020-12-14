@@ -26,14 +26,28 @@
 #include "nrf_log.h"
 RUUVI_PLATFORM_TIMER_ID_DEF(advertisement_timer);
 static ruuvi_interface_communication_t channel;
-
+int8_t Is_Adv_Over = 0;
 //handler for scheduled advertisement event
 static void task_advertisement_scheduler_task(void *p_event_data, uint16_t event_size)
 {
   ruuvi_driver_status_t err_code = RUUVI_DRIVER_SUCCESS;
   // Update BLE data
-  if(APPLICATION_DATA_FORMAT == 3) { err_code |= task_advertisement_send_3(); }
-  if(APPLICATION_DATA_FORMAT == 5) { err_code |= task_advertisement_send_5(); }
+  static int8_t cnt_adv = 0;
+  
+  if(cnt_adv++ < 2)
+  {
+    if(APPLICATION_DATA_FORMAT == 3) { err_code |= task_advertisement_send_3(); }
+    NRF_LOG_INFO("advertisement = %d \r\n", cnt_adv);
+    //if(APPLICATION_DATA_FORMAT == 5) { err_code |= task_advertisement_send_5(); }
+  }
+  else
+  {
+    ruuvi_interface_communication_ble4_advertising_uninit(&channel);
+    ruuvi_platform_timer_stop(advertisement_timer);
+    Is_Adv_Over = 1;
+    cnt_adv = 0x0F;
+  }
+  //cnt_adv++;
   if(RUUVI_DRIVER_SUCCESS == err_code) { ruuvi_interface_watchdog_feed(); }
 
 }

@@ -35,8 +35,8 @@
  */
 // Voltage mode - select one
 #ifndef APPLICATION_BATTERY_VOLTAGE_MODE
-#define APPLICATION_BATTERY_VOLTAGE_SIMPLE   0  // Simple mode: Not synchronized to anything, sampled at regular interval
-#define APPLICATION_BATTERY_VOLTAGE_RADIO    1  // Radio mode: Voltage is sampled after radio tx, refreshed after interval has passed.
+#define APPLICATION_BATTERY_VOLTAGE_SIMPLE   1  // Simple mode: Not synchronized to anything, sampled at regular interval
+#define APPLICATION_BATTERY_VOLTAGE_RADIO    0  // Radio mode: Voltage is sampled after radio tx, refreshed after interval has passed.
 #define APPLICATION_BATTERY_VOLTAGE_DROOP    0  // Droop mode: Battery is read after TX and after a brief recovery period. Droop is reported
 #endif
 #define APPLICATION_BATTERY_DROOP_DELAY_MS   2  // Milliseconds between active and recovered tx
@@ -108,7 +108,7 @@
 #define APPLICATION_ADC_DSPFUNC            RUUVI_DRIVER_SENSOR_DSP_LAST
 #define APPLICATION_ADC_DSPPARAM           1
 #define APPLICATION_ADC_MODE               RUUVI_DRIVER_SENSOR_CFG_SINGLE // Note: call to task_adc_sample will leave the ADC in single-shot mode. Use data get only in continuous mode
-#define APPLICATION_ADC_SAMPLE_INTERVAL_MS 30000 // Valid for single mode
+#define APPLICATION_ADC_SAMPLE_INTERVAL_MS 1000 // Valid for single mode
 
 /**
  * Bluetooth configuration

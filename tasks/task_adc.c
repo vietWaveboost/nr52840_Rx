@@ -16,6 +16,9 @@
 #include <stdio.h>
 #include <inttypes.h>
 
+#define PWR_CAP_2V2 2.2
+#define PWR_CAP_2V4 2.4
+
 RUUVI_PLATFORM_TIMER_ID_DEF(adc_timer);
 static ruuvi_driver_sensor_t adc_sensor = {0};
 static volatile uint64_t t_sample = 0;
@@ -26,12 +29,36 @@ static volatile float after_tx = 0;
  * Remember to start the timer at init
  */
 //handler for scheduled accelerometer event
+extern int8_t Is_Adv_Over;
+
 static void task_adc_scheduler_task(void *p_event_data, uint16_t event_size)
 {
   ruuvi_driver_status_t status = RUUVI_DRIVER_SUCCESS;
-
+  char message[128] = {0};
   // Take new sample
   status |= task_adc_sample();
+  ruuvi_interface_adc_data_t data;
+  status |= adc_sensor.data_get(&data);
+  RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
+  snprintf(message, sizeof(message), "task_adc_scheduler_task %.3f \n", data.adc_v);
+  ruuvi_platform_log(RUUVI_INTERFACE_LOG_INFO, message);
+  // handle logic PowerCap
+  if(Is_Adv_Over)
+  {
+  if(data.adc_v > PWR_CAP_2V2) {
+    //P0.31 logic high
+    task_led_write(RUUVI_BOARD_DONE_SIG,1);
+  } else {
+    // Turn ON pwr sharing
+    task_led_write(RUUVI_BOARD_PWR_SHARING, 1);
+    if(data.adc_v > PWR_CAP_2V4) {
+      //Turn OFF pwr sharing
+      task_led_write(RUUVI_BOARD_PWR_SHARING, 0);
+    } else {
+      // do nothing
+    }
+  }
+  }
   // Log warning if adc sampling failed.
   RUUVI_DRIVER_ERROR_CHECK(status, ~RUUVI_DRIVER_ERROR_FATAL);
 }
@@ -118,8 +145,7 @@ ruuvi_driver_status_t task_adc_init(void)
 {
   ruuvi_driver_status_t err_code = RUUVI_DRIVER_SUCCESS;
   ruuvi_driver_bus_t bus = RUUVI_DRIVER_BUS_NONE;
-  uint8_t handle = RUUVI_INTERFACE_ADC_AINVDD;
-
+  uint8_t handle = RUUVI_INTERFACE_ADC_AIN0;
   // Initialize timer for adc task.
   // Note: the timer is not started.
   // Note: use REPEATED mode for free-running sampling.
