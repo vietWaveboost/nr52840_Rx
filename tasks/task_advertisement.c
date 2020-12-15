@@ -27,12 +27,12 @@
 RUUVI_PLATFORM_TIMER_ID_DEF(advertisement_timer);
 static ruuvi_interface_communication_t channel;
 int8_t Is_Adv_Over = 0;
+int8_t cnt_adv = 0;
 //handler for scheduled advertisement event
 static void task_advertisement_scheduler_task(void *p_event_data, uint16_t event_size)
 {
   ruuvi_driver_status_t err_code = RUUVI_DRIVER_SUCCESS;
   // Update BLE data
-  static int8_t cnt_adv = 0;
   
   if(cnt_adv++ < 2)
   {

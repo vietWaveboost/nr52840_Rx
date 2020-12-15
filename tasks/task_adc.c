@@ -30,7 +30,7 @@ static volatile float after_tx = 0;
  */
 //handler for scheduled accelerometer event
 extern int8_t Is_Adv_Over;
-
+extern int8_t cnt_adv;
 static void task_adc_scheduler_task(void *p_event_data, uint16_t event_size)
 {
   ruuvi_driver_status_t status = RUUVI_DRIVER_SUCCESS;
@@ -54,6 +54,8 @@ static void task_adc_scheduler_task(void *p_event_data, uint16_t event_size)
     if(data.adc_v > PWR_CAP_2V4) {
       //Turn OFF pwr sharing
       task_led_write(RUUVI_BOARD_PWR_SHARING, 0);
+      Is_Adv_Over = 0;
+      cnt_adv = 0;
     } else {
       // do nothing
     }
