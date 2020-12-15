@@ -30,9 +30,9 @@ WaveBoost Sensor Board is including :
               
    - VEML6305 : 
    
-   SDL <--> 13
+   SCL <--> 7
    
-   SDA <--> 10
+   SDA <--> 8
   
   4 Change the interval advertising: 
    - go to the file application_config.h, and search for the macro : APPLICATION_ADVERTISING_INTERVAL and change its value
