@@ -36,6 +36,8 @@ static void task_advertisement_scheduler_task(void *p_event_data, uint16_t event
   
   if(cnt_adv++ < 2)
   {
+    //nrf_gpio_pin_write(RESERVATION_GPIO_1,1);
+    //nrf_gpio_pin_write(RESERVATION_GPIO_2,1);
     if(APPLICATION_DATA_FORMAT == 3) { err_code |= task_advertisement_send_3(); }
     NRF_LOG_INFO("advertisement = %d \r\n", cnt_adv);
     //if(APPLICATION_DATA_FORMAT == 5) { err_code |= task_advertisement_send_5(); }
