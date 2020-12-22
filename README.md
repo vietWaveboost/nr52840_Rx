@@ -37,3 +37,10 @@ WaveBoost Sensor Board is including :
   4 Change the interval advertising: 
    - go to the file application_config.h, and search for the macro : APPLICATION_ADVERTISING_INTERVAL and change its value
    (#define APPLICATION_ADVERTISING_INTERVAL              1010)
+
+
+
+*** active scanning : 
+go to the file ble_advertising.c in SDK.
+search for the function : ble_advertising_start
+add line :  p_advertising->adv_params.scan_req_notification = 1; under if condition : if (p_advertising->adv_mode_current != BLE_ADV_MODE_IDLE)
