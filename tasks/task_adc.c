@@ -34,6 +34,7 @@ extern int8_t Is_Adv_Over;
 extern int8_t cnt_adv;
 extern ruuvi_interface_communication_t channel;
 int8_t cap_charing = 0;
+int8_t counter_delay_base1s = 0;
 static void task_adc_scheduler_task(void *p_event_data, uint16_t event_size)
 {
   ruuvi_driver_status_t status = RUUVI_DRIVER_SUCCESS;
@@ -56,18 +57,21 @@ static void task_adc_scheduler_task(void *p_event_data, uint16_t event_size)
     // Turn ON pwr sharing
     task_led_write(RUUVI_BOARD_PWR_SHARING, 1);
     cap_charing = 1;
-    if(data.adc_v > PWR_CAP_2V4) {
-      //Turn OFF pwr sharing
-      task_led_write(RUUVI_BOARD_PWR_SHARING, 0);
+    if(counter_delay_base1s++ < 10){
+      counter_delay_base1s = 0;
+      if(data.adc_v > PWR_CAP_2V4) {
+        //Turn OFF pwr sharing
+        task_led_write(RUUVI_BOARD_PWR_SHARING, 0);
         // Initialize BLE
-      status |= task_advertisement_init();
-      //  status |= task_gatt_init();
-      RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
-      cap_charing = 0;
-      Is_Adv_Over = 0;
-      cnt_adv = 0;
-    } else {
+        status |= task_advertisement_init();
+        //  status |= task_gatt_init();
+        RUUVI_DRIVER_ERROR_CHECK(status, RUUVI_DRIVER_SUCCESS);
+        cap_charing = 0;
+        Is_Adv_Over = 0;
+        cnt_adv = 0;
+      } else {
       // do nothing
+      }
     }
   }
   }
